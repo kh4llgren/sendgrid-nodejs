@@ -1,4 +1,4 @@
-import {PublicKey} from "starkbank-ecdsa";
+import { PublicKey } from "starkbank-ecdsa";
 
 declare class EventWebhook {
     /**
@@ -6,7 +6,7 @@ declare class EventWebhook {
      * @param {string} publicKey verification key under Mail Settings
      * @return {PublicKey} A public key using the ECDSA algorithm
      */
-    convertPublicKeyToECDSA(publicKey: string): PublicKey;
+    convertPublicKeyToECDSA(publicKey: string): typeof PublicKey;
 
     /**
      *
@@ -16,7 +16,7 @@ declare class EventWebhook {
      * @param {string} timestamp value obtained from the 'X-Twilio-Email-Event-Webhook-Timestamp' header
      * @return {Boolean} true or false if signature is valid
      */
-    verifySignature(publicKey: PublicKey, payload: string|Buffer, signature: string, timestamp: string): boolean;
+    verifySignature(publicKey: typeof PublicKey, payload: string | Buffer, signature: string, timestamp: string): boolean;
 }
 
 /*
